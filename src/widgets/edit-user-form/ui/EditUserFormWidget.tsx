@@ -6,10 +6,9 @@ import { userFormSchema, type UserFormData } from '../../../features/edit-user/m
 type EditUserFormWidgetProps = {
   user: EditableUser
   onSave: (data: UserFormData) => void
-  onCancel: () => void
 }
 
-export function EditUserFormWidget({ user, onSave, onCancel }: EditUserFormWidgetProps) {
+export function EditUserFormWidget({ user, onSave }: EditUserFormWidgetProps) {
   const form = useForm<UserFormData>({
     resolver: zodResolver(userFormSchema),
     defaultValues: {
@@ -24,31 +23,31 @@ export function EditUserFormWidget({ user, onSave, onCancel }: EditUserFormWidge
 
   return (
     <form className="form" onSubmit={form.handleSubmit(onSave)}>
-      <img className="form__avatar" src={`https://i.pravatar.cc/180?img=${user.id + 10}`} alt={user.username} />
-      <h2 className="form__title">Данные пользователя</h2>
+      <h2 className="form__title">Данные профиля</h2>
+      <div className="form__divider" />
 
       <label>
-        Name
+        Имя
         <input {...form.register('name')} />
         <span>{form.formState.errors.name?.message}</span>
       </label>
       <label>
-        Username
+        Никнейм
         <input {...form.register('username')} />
         <span>{form.formState.errors.username?.message}</span>
       </label>
       <label>
-        Email
+        Почта
         <input {...form.register('email')} />
         <span>{form.formState.errors.email?.message}</span>
       </label>
       <label>
-        City
+        Город
         <input {...form.register('city')} />
         <span>{form.formState.errors.city?.message}</span>
       </label>
       <label>
-        Phone
+        Телефон
         <input
           {...form.register('phone')}
           onChange={(event) => {
@@ -59,17 +58,14 @@ export function EditUserFormWidget({ user, onSave, onCancel }: EditUserFormWidge
         <span>{form.formState.errors.phone?.message}</span>
       </label>
       <label>
-        Company Name
+        Название компании
         <input {...form.register('companyName')} />
         <span>{form.formState.errors.companyName?.message}</span>
       </label>
 
       <div className="form__actions">
-        <button type="submit" className="btn">
+        <button type="submit" className="btn btn--dark">
           Сохранить
-        </button>
-        <button type="button" className="btn btn--secondary" onClick={onCancel}>
-          Отмена
         </button>
       </div>
     </form>

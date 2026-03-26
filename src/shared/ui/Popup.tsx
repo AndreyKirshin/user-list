@@ -26,7 +26,10 @@ export function Popup({ open, title, onClose }: PopupProps) {
         <button type="button" className="popup__close" onClick={onClose} aria-label="Закрыть">
           x
         </button>
-        <p>{title}</p>
+        <div className="popup__icon" aria-hidden="true">
+          <span>✓</span>
+        </div>
+        <p className="popup__text">{title}</p>
       </div>
     </div>
   )
