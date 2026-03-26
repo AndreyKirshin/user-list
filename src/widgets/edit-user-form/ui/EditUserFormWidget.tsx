@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import type { EditableUser } from '../../../entities/user/model/types'
-import { userFormSchema, type UserFormData } from '../../../features/edit-user/model/formSchema'
+import { userFormSchema, type UserFormData } from '../../../features/edit-user'
 
 type EditUserFormWidgetProps = {
   user: EditableUser
