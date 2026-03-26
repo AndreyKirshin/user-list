@@ -21,11 +21,7 @@ export function HomePage() {
   const archivedUsers = mappedUsers.filter((user) => archivedIds.includes(user.id) && !hiddenIds.includes(user.id))
 
   return (
-    <main className="page">
-      <header className="page__header">
-        <h1>Пользователи</h1>
-      </header>
-
+    <main className="page page--home">
       {isLoading && <Loader />}
       {isError && <p>Ошибка загрузки пользователей</p>}
 

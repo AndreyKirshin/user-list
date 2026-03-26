@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import type { EditableUser } from '../../../entities/user/model/types'
 import { ActiveUserActions, ArchivedUserActions } from '../../../features/user-actions/ui/UserActions'
 
@@ -17,18 +18,44 @@ export function UserCardWidget({
   onHide = () => {},
 }: UserCardWidgetProps) {
   const avatarUrl = `https://i.pravatar.cc/160?img=${user.id + 10}`
+  const [menuOpen, setMenuOpen] = useState(false)
+  const cardRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    const onClickOutside = (event: MouseEvent) => {
+      if (!cardRef.current?.contains(event.target as Node)) {
+        setMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', onClickOutside)
+    return () => document.removeEventListener('mousedown', onClickOutside)
+  }, [])
 
   return (
-    <article className="user-card">
+    <article ref={cardRef} className={`user-card ${archived ? 'user-card--archived' : ''}`}>
       <img className="user-card__avatar" src={avatarUrl} alt={user.username} />
-      <h3 className="user-card__title">{user.username}</h3>
-      <p className="user-card__meta">City: {user.city}</p>
-      <p className="user-card__meta">Company: {user.companyName}</p>
-      {archived ? (
-        <ArchivedUserActions userId={user.id} onActivate={onActivate} />
-      ) : (
-        <ActiveUserActions userId={user.id} onArchive={onArchive} onHide={onHide} />
-      )}
+      <div className="user-card__content">
+        <h3 className="user-card__title">{user.username}</h3>
+        <p className="user-card__company">{user.companyName}</p>
+        <p className="user-card__city">{user.city}</p>
+      </div>
+      <div className="user-card__menu">
+        <button
+          type="button"
+          className="user-card__menu-button"
+          aria-label="Действия с пользователем"
+          onClick={() => setMenuOpen((value) => !value)}
+        >
+          &#8942;
+        </button>
+        {menuOpen &&
+          (archived ? (
+            <ArchivedUserActions userId={user.id} onActivate={onActivate} />
+          ) : (
+            <ActiveUserActions userId={user.id} onArchive={onArchive} onHide={onHide} />
+          ))}
+      </div>
     </article>
   )
 }

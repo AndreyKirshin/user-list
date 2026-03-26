@@ -24,7 +24,6 @@ export function UsersSectionWidget({
     <section className="cards-section">
       <div className="cards-section__head">
         <h2>{title}</h2>
-        <span>{users.length}</span>
       </div>
       <div className="cards-grid">
         {users.length === 0 ? (
