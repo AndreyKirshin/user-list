@@ -1,3 +1,5 @@
+import styles from './Loader.module.scss'
+
 export function Loader() {
-  return <div className="loader">Загрузка...</div>
+  return <div className={styles['loader']}>Загрузка...</div>
 }

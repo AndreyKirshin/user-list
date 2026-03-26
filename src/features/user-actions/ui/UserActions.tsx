@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { AppRoutes } from '../../../shared/config/routes'
+import cardStyles from '../../../widgets/user-card/ui/UserCard.module.scss'
 
 type ActiveActionsProps = {
   userId: number
@@ -14,14 +15,14 @@ type ArchivedActionsProps = {
 
 export function ActiveUserActions({ userId, onArchive, onHide }: ActiveActionsProps) {
   return (
-    <div className="user-card__menu-list">
-      <Link className="user-card__menu-item" to={AppRoutes.editUser.replace(':userId', String(userId))}>
+    <div className={cardStyles['user-card__menu-list']}>
+      <Link className={cardStyles['user-card__menu-item']} to={AppRoutes.editUser.replace(':userId', String(userId))}>
         Редактировать
       </Link>
-      <button type="button" className="user-card__menu-item" onClick={() => onArchive(userId)}>
+      <button type="button" className={cardStyles['user-card__menu-item']} onClick={() => onArchive(userId)}>
         Архивировать
       </button>
-      <button type="button" className="user-card__menu-item user-card__menu-item--danger" onClick={() => onHide(userId)}>
+      <button type="button" className={`${cardStyles['user-card__menu-item']} ${cardStyles['user-card__menu-item--danger']}`} onClick={() => onHide(userId)}>
         Скрыть
       </button>
     </div>
@@ -30,11 +31,11 @@ export function ActiveUserActions({ userId, onArchive, onHide }: ActiveActionsPr
 
 export function ArchivedUserActions({ userId, onActivate }: ArchivedActionsProps) {
   return (
-    <div className="user-card__menu-list">
-      <Link className="user-card__menu-item" to={AppRoutes.editUser.replace(':userId', String(userId))}>
+    <div className={cardStyles['user-card__menu-list']}>
+      <Link className={cardStyles['user-card__menu-item']} to={AppRoutes.editUser.replace(':userId', String(userId))}>
         Редактировать
       </Link>
-      <button type="button" className="user-card__menu-item" onClick={() => onActivate(userId)}>
+      <button type="button" className={cardStyles['user-card__menu-item']} onClick={() => onActivate(userId)}>
         Сделать активным
       </button>
     </div>

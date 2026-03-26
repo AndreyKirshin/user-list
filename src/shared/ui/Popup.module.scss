@@ -1,0 +1,60 @@
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.popup {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px 18px 18px;
+  width: 286px;
+  min-height: 188px;
+  position: relative;
+  border: 1px solid #ececec;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 16px;
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #b8e8b9;
+    display: grid;
+    place-items: center;
+
+    span {
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 700;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    font-size: 23px;
+    line-height: 1.15;
+    color: #4d4d4d;
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #7d7d7d;
+    padding: 2px;
+  }
+}

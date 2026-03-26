@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { EditableUser } from '../../../entities/user/model/types'
 import { ActiveUserActions, ArchivedUserActions } from '../../../features/user-actions'
+import styles from './UserCard.module.scss'
 
 type UserCardWidgetProps = {
   user: EditableUser
@@ -33,15 +34,15 @@ export function UserCardWidget({
   }, [])
 
   return (
-    <article ref={cardRef} className={`user-card ${archived ? 'user-card--archived' : ''}`}>
-      <img className="user-card__avatar" src={avatarUrl} alt={user.username} />
+    <article ref={cardRef} className={`${styles['user-card']} ${archived ? styles['user-card--archived'] : ''}`}>
+      <img className={styles['user-card__avatar']} src={avatarUrl} alt={user.username} />
       <div className="user-card__content">
-        <div className="user-card__head">
-          <h3 className="user-card__title">{user.username}</h3>
-          <div className="user-card__menu">
+        <div className={styles['user-card__head']}>
+          <h3 className={styles['user-card__title']}>{user.username}</h3>
+          <div className={styles['user-card__menu']}>
             <button
               type="button"
-              className="user-card__menu-button"
+              className={styles['user-card__menu-button']}
               aria-label="Действия с пользователем"
               onClick={() => setMenuOpen((value) => !value)}
             >
@@ -55,8 +56,8 @@ export function UserCardWidget({
               ))}
           </div>
         </div>
-        <p className="user-card__company">{user.companyName}</p>
-        <p className="user-card__city">{user.city}</p>
+        <p className={styles['user-card__company']}>{user.companyName}</p>
+        <p className={styles['user-card__city']}>{user.city}</p>
       </div>
     </article>
   )

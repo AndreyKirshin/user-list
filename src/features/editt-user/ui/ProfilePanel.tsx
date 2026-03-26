@@ -1,3 +1,5 @@
+import panelStyles from './ProfilePanel.module.scss'
+
 type ProfilePanelProps = {
   avatarUrl: string
   username: string
@@ -5,13 +7,13 @@ type ProfilePanelProps = {
 
 export function ProfilePanel({ avatarUrl, username }: ProfilePanelProps) {
   return (
-    <aside className="profile-panel">
-      <img className="profile-panel__avatar" src={avatarUrl} alt={username} />
-      <ul className="profile-panel__menu">
-        <li className="profile-panel__menu-item profile-panel__menu-item--active">Данные профиля</li>
-        <li className="profile-panel__menu-item">Рабочее пространство</li>
-        <li className="profile-panel__menu-item">Приватность</li>
-        <li className="profile-panel__menu-item">Безопасность</li>
+    <aside className={panelStyles['profile-panel']}>
+      <img className={panelStyles['profile-panel__avatar']} src={avatarUrl} alt={username} />
+      <ul className={panelStyles['profile-panel__menu']}>
+        <li className={`${panelStyles['profile-panel__menu-item']} ${panelStyles['profile-panel__menu-item--active']}`}>Данные профиля</li>
+        <li className={panelStyles['profile-panel__menu-item']}>Рабочее пространство</li>
+        <li className={panelStyles['profile-panel__menu-item']}>Приватность</li>
+        <li className={panelStyles['profile-panel__menu-item']}>Безопасность</li>
       </ul>
     </aside>
   )

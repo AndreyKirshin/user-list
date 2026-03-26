@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import styles from './Popup.module.scss'
 
 type PopupProps = {
   open: boolean
@@ -21,15 +22,15 @@ export function Popup({ open, title, onClose }: PopupProps) {
   }
 
   return (
-    <div className="popup-overlay" onClick={onClose} role="presentation">
-      <div className="popup" onClick={(event) => event.stopPropagation()}>
-        <button type="button" className="popup__close" onClick={onClose} aria-label="Закрыть">
+    <div className={styles['popup-overlay']} onClick={onClose} role="presentation">
+      <div className={styles['popup']} onClick={(event) => event.stopPropagation()}>
+        <button type="button" className={styles['popup__close']} onClick={onClose} aria-label="Закрыть">
           x
         </button>
-        <div className="popup__icon" aria-hidden="true">
+        <div className={styles['popup__icon']} aria-hidden="true">
           <span>✓</span>
         </div>
-        <p className="popup__text">{title}</p>
+        <p className={styles['popup__text']}>{title}</p>
       </div>
     </div>
   )

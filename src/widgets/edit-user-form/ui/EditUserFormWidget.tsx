@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import type { EditableUser } from '../../../entities/user/model/types'
 import { userFormSchema, type UserFormData } from '../../../features/edit-user'
+import formStyles from './EditUserForm.module.scss'
+import btnStyles from '../../../shared/ui/Button.module.scss'
 
 type EditUserFormWidgetProps = {
   user: EditableUser
@@ -22,9 +24,9 @@ export function EditUserFormWidget({ user, onSave }: EditUserFormWidgetProps) {
   })
 
   return (
-    <form className="form" onSubmit={form.handleSubmit(onSave)}>
-      <h2 className="form__title">Данные профиля</h2>
-      <div className="form__divider" />
+    <form className={formStyles['form']} onSubmit={form.handleSubmit(onSave)}>
+      <h2 className={formStyles['form__title']}>Данные профиля</h2>
+      <div className={formStyles['form__divider']} />
 
       <label>
         Имя
@@ -63,8 +65,8 @@ export function EditUserFormWidget({ user, onSave }: EditUserFormWidgetProps) {
         <span>{form.formState.errors.companyName?.message}</span>
       </label>
 
-      <div className="form__actions">
-        <button type="submit" className="btn btn--dark">
+      <div className={formStyles['form__actions']}>
+        <button type="submit" className={`${btnStyles['btn']} ${btnStyles['btn--dark']}`}>
           Сохранить
         </button>
       </div>

@@ -1,5 +1,6 @@
 import type { EditableUser } from '../../../entities/user/model/types'
 import { UserCardWidget } from '../../user-card/ui/UserCardWidget'
+import styles from './UsersSection.module.scss'
 
 type UsersSectionWidgetProps = {
   title: string
@@ -21,13 +22,13 @@ export function UsersSectionWidget({
   emptyText,
 }: UsersSectionWidgetProps) {
   return (
-    <section className="cards-section">
-      <div className="cards-section__head">
+    <section className={styles['cards-section']}>
+      <div className={styles['cards-section__head']}>
         <h2>{title}</h2>
       </div>
-      <div className="cards-grid">
+      <div className={styles['cards-grid']}>
         {users.length === 0 ? (
-          <p className="cards-section__empty">{emptyText}</p>
+          <p className={styles['cards-section__empty']}>{emptyText}</p>
         ) : (
           users.map((user) => (
             <UserCardWidget

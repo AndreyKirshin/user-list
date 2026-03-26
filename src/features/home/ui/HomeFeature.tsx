@@ -1,12 +1,13 @@
 import { Loader } from '../../../shared/ui/Loader'
 import { UsersSectionWidget } from '../../../widgets/users-list/ui/UsersSectionWidget'
 import { useHomeUsers } from '../model/useHomeUsers'
+import pageStyles from '../../../pages/home/ui/Page.module.scss'
 
 export function HomeFeature() {
   const { isLoading, isError, activeUsers, archivedUsers, archiveUser, activateUser, hideUser } = useHomeUsers()
 
   return (
-    <main className="page page--home">
+    <main className={pageStyles['page']}>
       {isLoading && <Loader />}
       {isError && <p>Ошибка загрузки пользователей</p>}
 

@@ -1,0 +1,42 @@
+.page {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 20px 24px 34px;
+
+  &--edit {
+    max-width: 1360px;
+  }
+
+  &__header {
+    margin-bottom: 28px;
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    &--inline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 24px 16px 32px;
+  }
+}
+
+@media (max-width: 820px) {
+  .page {
+    &--edit {
+      padding-top: 14px;
+    }
+  }
+}
