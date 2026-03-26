@@ -2,8 +2,8 @@ import { useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getUsers } from '../../../entities/user/api/usersApi'
 import { useUsersStore } from '../../../entities/user/model/useUsersStore'
-import { UserCard } from '../../../entities/user/ui/UserCard'
 import { Loader } from '../../../shared/ui/Loader'
+import { UsersSectionWidget } from '../../../widgets/users-list/ui/UsersSectionWidget'
 
 export function HomePage() {
   const { data, isLoading, isError } = useQuery({
@@ -31,27 +31,20 @@ export function HomePage() {
 
       {!isLoading && !isError && (
         <>
-          <section className="cards-section">
-            <h2>Активные</h2>
-            <div className="cards-grid">
-              {activeUsers.map((user) => (
-                <UserCard key={user.id} user={user} onArchive={archiveUser} onHide={hideUser} />
-              ))}
-            </div>
-          </section>
-
-          <section className="cards-section">
-            <h2>Архив</h2>
-            <div className="cards-grid">
-              {archivedUsers.length > 0 ? (
-                archivedUsers.map((user) => (
-                  <UserCard key={user.id} user={user} archived onActivate={activateUser} />
-                ))
-              ) : (
-                <p>Архив пуст</p>
-              )}
-            </div>
-          </section>
+          <UsersSectionWidget
+            title="Активные"
+            users={activeUsers}
+            onArchive={archiveUser}
+            onHide={hideUser}
+            emptyText="Нет активных пользователей"
+          />
+          <UsersSectionWidget
+            title="Архив"
+            users={archivedUsers}
+            archived
+            onActivate={activateUser}
+            emptyText="Архив пуст"
+          />
         </>
       )}
     </main>

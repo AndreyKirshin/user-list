@@ -1,0 +1,42 @@
+import { Link } from 'react-router-dom'
+import { AppRoutes } from '../../../shared/config/routes'
+
+type ActiveActionsProps = {
+  userId: number
+  onArchive: (id: number) => void
+  onHide: (id: number) => void
+}
+
+type ArchivedActionsProps = {
+  userId: number
+  onActivate: (id: number) => void
+}
+
+export function ActiveUserActions({ userId, onArchive, onHide }: ActiveActionsProps) {
+  return (
+    <div className="user-card__actions">
+      <Link className="btn btn--secondary" to={AppRoutes.editUser.replace(':userId', String(userId))}>
+        Редактировать
+      </Link>
+      <button type="button" className="btn" onClick={() => onArchive(userId)}>
+        Архивировать
+      </button>
+      <button type="button" className="btn btn--danger" onClick={() => onHide(userId)}>
+        Скрыть
+      </button>
+    </div>
+  )
+}
+
+export function ArchivedUserActions({ userId, onActivate }: ArchivedActionsProps) {
+  return (
+    <div className="user-card__actions">
+      <Link className="btn btn--secondary" to={AppRoutes.editUser.replace(':userId', String(userId))}>
+        Редактировать
+      </Link>
+      <button type="button" className="btn" onClick={() => onActivate(userId)}>
+        Сделать активным
+      </button>
+    </div>
+  )
+}
