@@ -1,10 +1,8 @@
 import { useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router-dom'
-import { getUsers } from '../../../entities/user/api/usersApi'
-import { useUsersStore } from '../../../entities/user/model/useUsersStore'
-import type { EditableUser } from '../../../entities/user/model/types'
-import type { UserFormData } from '../../edit-user/model/formSchema'
+import { getUsers, useUsersStore, type EditableUser } from '../../../entities/user'
+import type { UserFormData } from '../../edit-user'
 
 export function useEdittUserFeature() {
   const { userId } = useParams()

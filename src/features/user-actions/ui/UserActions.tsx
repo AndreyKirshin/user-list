@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { AppRoutes } from '../../../shared/config/routes'
+import { AppRoutes } from '../../../shared/config'
 import cardStyles from '../../../widgets/user-card/ui/UserCard.module.scss'
 
 type ActiveActionsProps = {

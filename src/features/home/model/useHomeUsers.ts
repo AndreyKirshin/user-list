@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { getUsers } from '../../../entities/user/api/usersApi'
-import { useUsersStore } from '../../../entities/user/model/useUsersStore'
+import { getUsers, useUsersStore } from '../../../entities/user'
 
 export function useHomeUsers() {
   const { data, isLoading, isError } = useQuery({

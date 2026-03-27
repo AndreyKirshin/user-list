@@ -1,5 +1,5 @@
-import type { EditableUser } from '../../../entities/user/model/types'
-import { UserCardWidget } from '../../user-card/ui/UserCardWidget'
+import type { EditableUser } from '../../../entities/user'
+import { UserCardWidget } from '../../user-card'
 import styles from './UsersSection.module.scss'
 
 type UsersSectionWidgetProps = {

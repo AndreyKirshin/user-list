@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
-import { HomePage } from '../../pages/home/ui/HomePage'
-import { EditUserPage } from '../../pages/edit-user/ui/EditUserPage'
-import { AppRoutes } from '../../shared/config/routes'
+import { HomePage } from '../../pages/home'
+import { EditUserPage } from '../../pages/edit-user'
+import { AppRoutes } from '../../shared/config'
 
 export const router = createBrowserRouter([
   {

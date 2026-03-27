@@ -1,5 +1,5 @@
-import { Loader } from '../../../shared/ui/Loader'
-import { UsersSectionWidget } from '../../../widgets/users-list/ui/UsersSectionWidget'
+import { Loader } from '../../../shared/ui'
+import { UsersSectionWidget } from '../../../widgets/users-list'
 import { useHomeUsers } from '../model/useHomeUsers'
 import pageStyles from '../../../pages/home/ui/Page.module.scss'
 
