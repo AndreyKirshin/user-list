@@ -1,1 +1,1 @@
-export { ActiveUserActions, ArchivedUserActions } from './ui/UserActions'
+export { ActiveUserActions, ArchivedUserActions } from '../../widgets/user-card/ui/UserActions'

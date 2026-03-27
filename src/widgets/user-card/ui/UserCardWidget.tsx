@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { EditableUser } from '../../../entities/user'
-import { ActiveUserActions, ArchivedUserActions } from '../../../features/user-actions'
 import styles from './UserCard.module.scss'
+import { ActiveUserActions, ArchivedUserActions } from './UserActions'
 
 type UserCardWidgetProps = {
   user: EditableUser

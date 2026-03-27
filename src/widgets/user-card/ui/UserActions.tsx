@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { AppRoutes } from '../../../shared/config'
-import cardStyles from '../../../widgets/user-card/ui/UserCard.module.scss'
+import cardStyles from './UserCard.module.scss'
 
 type ActiveActionsProps = {
   userId: number
