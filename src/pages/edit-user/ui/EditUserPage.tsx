@@ -1,4 +1,4 @@
-import { EdittUserFeature } from '../../../features/editt-user'
+import { EdittUserFeature } from '../../../features/edit-user'
 
 export function EditUserPage() {
   return <EdittUserFeature />
