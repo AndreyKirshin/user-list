@@ -20,11 +20,11 @@ export function UserCardWidget({
 }: UserCardWidgetProps) {
   const avatarUrl = `https://i.pravatar.cc/160?img=${user.id + 10}`
   const [menuOpen, setMenuOpen] = useState(false)
-  const cardRef = useRef<HTMLElement | null>(null)
+  const menuRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const onClickOutside = (event: MouseEvent) => {
-      if (!cardRef.current?.contains(event.target as Node)) {
+      if (!menuRef.current?.contains(event.target as Node)) {
         setMenuOpen(false)
       }
     }
@@ -34,12 +34,12 @@ export function UserCardWidget({
   }, [])
 
   return (
-    <article ref={cardRef} className={`${styles['user-card']} ${archived ? styles['user-card--archived'] : ''}`}>
+    <article className={`${styles['user-card']} ${archived ? styles['user-card--archived'] : ''}`}>
       <img className={styles['user-card__avatar']} src={avatarUrl} alt={user.username} />
       <div className="user-card__content">
         <div className={styles['user-card__head']}>
           <h3 className={styles['user-card__title']}>{user.username}</h3>
-          <div className={styles['user-card__menu']}>
+          <div ref={menuRef} className={styles['user-card__menu']}>
             <button
               type="button"
               className={styles['user-card__menu-button']}
